@@ -6,11 +6,14 @@ Route::get('/', function () {
     	return redirect('cats');
 }); 
 // Display list cats of breed
-Route::get('/cats/breeds/{name}', function ($name) {
+
+Route::group(['middleware'=>'auth'],function(){
+	Route::resource('cats','CatController');
+	Route::get('/cats/breeds/{name}', function ($name) {
     $breed=Furbook\Breed::with('cats')->where('name',$name)->first();
     return view('cats.index')->with('breed',$breed)->with('cats',$breed->cats);
+	});
 });
-Route::resource('cats','CatController');
 
 Auth::routes();
 

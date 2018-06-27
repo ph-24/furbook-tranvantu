@@ -4,11 +4,16 @@ namespace Furbook\Http\Controllers;
 
 use Validator;
 use Furbook\Cat;
+use Auth;
 use Illuminate\Http\Request;
 use Furbook\Http\Requests\CatRequest;
 
 class CatController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('admin')->only('destroy');
+    }
     public function index()
     {
         $cats = Cat::all();
@@ -70,6 +75,11 @@ class CatController extends Controller
     public function edit($id)
     {
         $cat=Cat::find($id);
+        if (! Auth::user()->canEdit($cat)){
+            return redirect()
+                ->route('cats.index')
+                ->withErrors('Permission denied');
+        }
         return view('cats.edit')->with('cat',$cat);
     }
 

@@ -21,9 +21,15 @@
 		<div class="page-header">
 			@yield('header')
 		</div>
+		
 		@if (Session::has('success'))
 		<div class="alert alert-success">
 			{{Session::get('success')}}
+		</div>
+		@endif
+		@if (Session::has('errors'))
+		<div class="alert alert-warning">
+			{{Session::get('errors')}}
 		</div>
 		@endif
 		@yield('content')
