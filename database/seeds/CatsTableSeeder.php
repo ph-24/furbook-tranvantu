@@ -18,6 +18,7 @@ class CatsTableSeeder extends Seeder
         		'name'=>'Meo Ba Tu',
         		'date_of_birth'=>date('Y-m-d'),
         		'breed_id'=>1,
+                'user_id'=>1,
         		'created_at'=> $currentTime,
         		'updated_at'=> $currentTime
         	],
@@ -26,6 +27,7 @@ class CatsTableSeeder extends Seeder
         		'name'=>'Meo Rung Nepan',
         		'date_of_birth'=>date('Y-m-d'),
         		'breed_id'=>2,
+                'user_id'=>2,
         		'created_at'=> $currentTime,
         		'updated_at'=> $currentTime
         	],
@@ -34,6 +36,7 @@ class CatsTableSeeder extends Seeder
         		'name'=>'Meo My long ngan',
         		'date_of_birth'=>date('Y-m-d'),
         		'breed_id'=>3,
+                'user_id'=>1,
         		'created_at'=> $currentTime,
         		'updated_at'=> $currentTime
         	]

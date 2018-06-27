@@ -11,3 +11,7 @@ Route::get('/cats/breeds/{name}', function ($name) {
     return view('cats.index')->with('breed',$breed)->with('cats',$breed->cats);
 });
 Route::resource('cats','CatController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
