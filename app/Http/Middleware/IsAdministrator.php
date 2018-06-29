@@ -17,13 +17,12 @@ class IsAdministrator
      */
     public function handle($request, Closure $next)
     {
-        if (! Auth::user()->IsAdministrator()) {
-            if ($request->ajax()) {
-                return response('Forbidden.',403);
+        if(!Auth::user()->isAdministrator()){
+            if($request->ajax()){
+                return response('Forbidden', 403);
             }else{
-                throw new AccessDeniedHttpException;
+                throw new AccessDeniedException('Forbiden');
             }
-            
         }
         return $next($request);
     }
