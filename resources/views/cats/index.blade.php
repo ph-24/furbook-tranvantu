@@ -8,13 +8,7 @@
 
 		<a href="{{ route('cats.create') }}" class="btn btn-primary">Add a new cat</a>
 	</h2>
-	@stop
-	@section('content')
-		@foreach($cats as $cat)
-		<div class="cat">
-			<a href="{{ route('cats.show',$cat->id) }}">
-				<strong>{{ $cat->name }}</strong> - {{$cat->breed->name}}
-			</a>
-		</div>
-		@endforeach
+@stop
+@section('content')
+	@include('partials.cat')
 @stop
